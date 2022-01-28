@@ -1,10 +1,12 @@
 package com.example.lesson4android2.boarding;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lesson4android2.databinding.FragmentBoardBinding;
@@ -14,9 +16,9 @@ import java.util.ArrayList;
 
 public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder> {
     ArrayList<ViewPagerModel> listPager;
-    ItemClickListener listener;
+    itemClickListener  listener;
 
-    public ViewPagerAdapter(ArrayList<ViewPagerModel> listPager, ItemClickListener listener) {
+    public ViewPagerAdapter(ArrayList<ViewPagerModel> listPager, itemClickListener listener) {
         this.listPager = listPager;
         this.listener = listener;
     }
@@ -48,8 +50,8 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
         public void onBind(ViewPagerModel model) {
             binding.titleTv.setText(model.getTitle());
             binding.descriptionTv.setText(model.getDescription());
-            binding.imageView.setImageResource(model.getImage());
             binding.skipBtn.setText(model.getSkip());
+            binding.lottieAnim.setAnimation(model.getImage());
             binding.skipBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -57,6 +59,5 @@ public class ViewPagerAdapter extends RecyclerView.Adapter<ViewPagerAdapter.View
                 }
             });
 
-        }
-    }
+        }}
 }

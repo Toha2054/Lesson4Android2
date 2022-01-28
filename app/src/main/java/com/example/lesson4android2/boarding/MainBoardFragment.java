@@ -21,7 +21,7 @@ import com.example.lesson4android2.model.ViewPagerModel;
 import java.util.ArrayList;
 
 
-public class MainBoardFragment extends Fragment implements ItemClickListener {
+public class MainBoardFragment extends Fragment  implements  itemClickListener {
     private FragmentMainBoardBinding binding;
     ViewPagerAdapter adapter;
     ArrayList<ViewPagerModel> list = new ArrayList<>();
@@ -39,7 +39,6 @@ public class MainBoardFragment extends Fragment implements ItemClickListener {
         super.onViewCreated(view, savedInstanceState);
         checkOnShow();
         getData();
-
     }
 
     private void checkOnShow() {
@@ -48,10 +47,9 @@ public class MainBoardFragment extends Fragment implements ItemClickListener {
         if (isShow)
             Navigation.findNavController(requireView()).navigate(R.id.homeFragment);
     }
-
     private void getData() {
         list = ViewPagerClient.getPagerlist();
-        adapter = new ViewPagerAdapter(list, this);
+        adapter = new ViewPagerAdapter(list,this);
         binding.viewpager.setAdapter(adapter);
         binding.dotsIndicator.setViewPager2(binding.viewpager);
     }
@@ -59,7 +57,7 @@ public class MainBoardFragment extends Fragment implements ItemClickListener {
     @Override
     public void itemClick() {
         Navigation.findNavController(requireView()).navigate(R.id.homeFragment);
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
-        sharedPreferences.edit().putBoolean("isShow", true).apply();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("куба еблан соси хуй огромный", Context.MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean("isShow",true).apply();
     }
 }

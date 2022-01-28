@@ -1,10 +1,10 @@
 package com.example.lesson4android2.activity;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-
-import android.os.Bundle;
 
 import com.example.lesson4android2.R;
 import com.example.lesson4android2.databinding.ActivityMainBinding;
